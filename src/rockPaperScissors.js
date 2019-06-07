@@ -17,6 +17,29 @@
  *   rockPaperScissors(4); // => [['rock', 'rock', 'rock', 'rock'], etc...]
  */
 
-const rockPaperScissors = () => {
-  // Your code here
+const rockPaperScissors = (num) => {
+
+  let input = num || 3;
+  const moves = ['rock', 'paper', 'scissors'];
+  let  output = [];
+  
+  function combinations(played, rounds) {
+    if (rounds === 0) {
+      output.push(played); //terminating condition
+    } else {
+      for (let i = 0; i < moves.length; i++) {
+        combinations(played.concat(moves[i]), rounds - 1); //call to itself that approximates the terminating condition
+      }
+    }
+  };
+
+  combinations([], input);
+  return output;
+
 };
+
+
+
+
+
+
