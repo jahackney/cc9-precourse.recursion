@@ -11,6 +11,12 @@ const stringifyJSON = (thing) => {
        if (thing === null) {
             return 'null';
       }
+
+      if(thing instanceof Date) {
+            let jsonDate = thing.toJSON();
+            return "'" + jsonDate + "'";
+      }
+      
       if (typeof thing === 'function' || thing === undefined) {
             return undefined;
       }
